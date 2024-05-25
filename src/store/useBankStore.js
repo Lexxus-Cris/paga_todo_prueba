@@ -10,7 +10,7 @@ const useBankStore = create(
                 if (get().originalBanks.length === 0) {
                     return { banks, originalBanks : banks}
                 }
-                return { banks };
+                return { banks, originalBanks: banks };
             }),
             removeBank: (bankName) =>
                 set(() => ({
