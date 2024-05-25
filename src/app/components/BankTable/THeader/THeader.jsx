@@ -45,7 +45,7 @@ const THeader = () => {
         <thead>
             <tr className={styles.headRow}>
                 <Column>
-                    <button type="button" className='flex gap-2'onClick={onClickSort} >
+                    <button type="button" className='flex gap-2 items-center'onClick={onClickSort} >
                         Nombre del banco
                         <SortIcon img={sortActive.img}/>
                     </button>
