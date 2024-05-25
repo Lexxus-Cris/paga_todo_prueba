@@ -18,6 +18,8 @@ const BankPage = ({}) => {
 
     const resetBank = useBankStore((state) => state.resetOrder);
 
+    const { fetchAndStoreBanks } = useGetBanks();
+
     const handleGetBanks = async () => {
         const banksStored = JSON.parse(localStorage.getItem('banks'))
         const { state } = banksStored;
@@ -28,7 +30,6 @@ const BankPage = ({}) => {
         resetBank();
     }
 
-    const { fetchAndStoreBanks } = useGetBanks();
     // Uso de useEffect para permitir que el código que implementa localStorage solo se ejecute en el lado del cliente
     useEffect(() => {
         setIsClient(true)
@@ -41,7 +42,7 @@ const BankPage = ({}) => {
     return (
         <section className={style.bankPage}>
             <div className={style.options}>
-                <Button  label='Reiniciar tabla' onClick={fetchAndStoreBanks} />
+                <Button label='Reiniciar tabla' onClick={fetchAndStoreBanks} />
                 <Button label='Cargar bancos' onClick={handleGetBanks} />
             </div>
             <SearchBank />

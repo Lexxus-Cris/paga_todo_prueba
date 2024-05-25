@@ -19,7 +19,7 @@ const useBankStore = create(
                 })),
             filterBank: (searchTerm) =>
                 set(() => ({
-                    banks: get().originalBanks.filter((bank) =>
+                    banks: [...get().originalBanks].filter((bank) =>
                         bank.bankName.toLowerCase().includes(searchTerm.toLowerCase())
                     ),
                 })),
@@ -39,7 +39,7 @@ const useBankStore = create(
                 }),
             resetOrder: () =>
                 set(() => ({
-                    banks: get().originalBanks
+                    banks: get().originalBanks,
                 }))
         }),
         {
