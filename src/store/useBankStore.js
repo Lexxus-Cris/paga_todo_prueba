@@ -17,9 +17,11 @@ const useBankStore = create(
                     banks: [...get().banks].filter((bank) => bank.bankName !== bankName),
                     originalBanks: [...get().banks].filter((bank) => bank.bankName !== bankName),
                 })),
-            filterBank: (bankName) =>
+            filterBank: (searchTerm) =>
                 set(() => ({
-                    banks: [...get().originalBanks].filter((bank) => bank.bankName.toLowerCase() === bankName.toLowerCase())
+                    banks: get().originalBanks.filter((bank) =>
+                        bank.bankName.toLowerCase().includes(searchTerm.toLowerCase())
+                    ),
                 })),
             sortBankAsc: () =>
                 set(() => {

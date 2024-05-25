@@ -9,6 +9,7 @@ import { Button } from '@/components/Button';
 import useBankStore from '@/store/useBankStore';
 
 import style from '@ui/Bank.module.css';
+import btnStyle from '../../components/Components.module.css';
 
 const BankPage = ({}) => {
 
@@ -39,8 +40,11 @@ const BankPage = ({}) => {
 
     return (
         <section className={style.bankPage}>
+            <div className={style.options}>
+                <Button  label='Reiniciar tabla' onClick={fetchAndStoreBanks} />
                 <Button label='Cargar bancos' onClick={handleGetBanks} />
-                <SearchBank />
+            </div>
+            <SearchBank />
             {
                 // Condicional para mostrar el componente de BankTable cuando se haya renderizado del lado del cliente
                 isClient && <BankTable />

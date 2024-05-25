@@ -8,7 +8,7 @@
     border: 1px solid var(--secondary-color);
 }
 
-.bankPage > button{
+.bankPage > .options{
     margin-bottom: 10px;
     align-self: flex-end;
 }
@@ -68,4 +68,16 @@
     padding: 10px;
     min-width: 90px;
     text-overflow: clip;
+}
+
+/* Options section */
+
+
+.options button:first-of-type {
+    background-color: var(--success-color);
+    margin-right: 20px;
+}
+
+.options button:first-of-type:hover {
+    background-color: var(--success-color-alt);
 }
