@@ -1,4 +1,27 @@
-/*  Input de busqueda */
+/* PageBank */
+.bankPage {
+    display: flex;
+    flex-flow: column;
+    background-color: #fdfbfb;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--secondary-color);
+}
+
+.bankPage > button{
+    margin-bottom: 10px;
+    align-self: flex-end;
+}
+
+/*  Seccion Search*/
+.searchBank {
+    margin-bottom: 15px;
+}
+
+.searchBank input {
+    margin-right: 8px;
+}
+
 .inputSearch {
     border: 1.5px solid var(--secondary-color);
     padding: 5px;
@@ -34,6 +57,10 @@
     padding: 8px;
     text-align: start;
     color: #4b5563;
+}
+
+.headRow th.sort-btn {
+    display: flex;
 }
 
 .bodyRow td {
