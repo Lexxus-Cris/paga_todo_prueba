@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import trash from './trash-can-outline.svg'
+import trash from '@public/trash-can-outline.svg';
 
 export const TrashIcon = ({width = 30, height = 30, className }) => {
   return (

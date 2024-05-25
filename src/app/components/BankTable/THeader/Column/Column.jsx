@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
 
-export const Column = ({header})  => {
+const Column = ({children})  => {
   return (
-    <th>{header}</th>
+    <th className='t-header__bank'>{children}</th>
   )
 }
 
 Column.propTypes = {
   header: PropTypes.string.isRequired,
 }
+
+export default Column;

@@ -9,7 +9,7 @@ const nextConfig = {
         pathname: '/v0/b/stagingpagatodo-286214.appspot.com/o/**',
       }
     ]
-  }
+  },
 };
 
 export default nextConfig;
