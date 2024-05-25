@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import Image from 'next/image'
-import { TrashIcon } from '../../TrashIcon';
+import { TrashIcon } from '../../icons/TrashIcon';
 import styles from '@ui/Bank.module.css'
 
 const TBody = ({ banks, removeBank }) => {

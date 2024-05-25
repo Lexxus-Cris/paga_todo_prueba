@@ -5,27 +5,39 @@ const useBankStore = create(
     persist(
         (set, get) => ({
             banks: [],
-            setBanks: (banks) => set(() => ({ banks })),
+            originalBanks: [],
+            setBanks: (banks) => set(() => {
+                if (get().originalBanks.length === 0) {
+                    return { banks, originalBanks : banks}
+                }
+                return { banks };
+            }),
             removeBank: (bankName) =>
                 set(() => ({
-                    banks: get().banks.filter((bank) => bank.bankName !== bankName),
+                    banks: [...get().banks].filter((bank) => bank.bankName !== bankName),
+                    originalBanks: [...get().banks].filter((bank) => bank.bankName !== bankName),
                 })),
             filterBank: (bankName) =>
                 set(() => ({
-                    banks: get().banks.filter((bank) => bank.bankName === bankName)
+                    banks: [...get().originalBanks].filter((bank) => bank.bankName.toLowerCase() === bankName.toLowerCase())
                 })),
-            sortBank: () =>
+            sortBankAsc: () =>
+                set(() => {
+                    const banksAsc =[...get().banks].sort((a, b) => (a.bankName > b.bankName) ? 1 : (a.bankName < b.bankName) ? -1 : 0);
+                    return {
+                        banks: banksAsc
+                    }
+                }),
+            sortBankDesc: () =>
+                set(() => {
+                    const banksDesc = [...get().banks].sort((a, b) => (a.bankName > b.bankName) ? -1 : (a.bankName < b.bankName) ? 1 : 0);
+                    return {
+                        banks: banksDesc
+                    }
+                }),
+            resetOrder: () =>
                 set(() => ({
-                    banks: get().banks.sort((a, b) => {
-                        if (a.name > b.name) {
-                            return 1
-                        }
-                        if (a.name < b.name) {
-                            return -1
-                        }
-
-                        return 0;
-                    })
+                    banks: get().originalBanks
                 }))
         }),
         {

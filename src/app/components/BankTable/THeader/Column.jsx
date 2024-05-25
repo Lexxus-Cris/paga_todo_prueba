@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-const Column = ({children})  => {
+const Column = ({className, children})  => {
   return (
-    <th className='t-header__bank'>{children}</th>
+    <th className={className}>{children}</th>
   )
 }
 

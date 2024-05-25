@@ -2,23 +2,29 @@ import PropTypes from 'prop-types'
 import InputSearch from './InputSearch'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/Button'
+import useBankStore from '@/store/useBankStore';
+import style from '@ui/Bank.module.css';
 
 const SearchBank = () => {
 
-    const { control, onsubmit } = useForm({
+    const { control, handleSubmit } = useForm({
         defaultValues: {
             search: ''
         }
-    })
+    });
+
+    const filterBank = useBankStore((state) => state.filterBank);
+
+    const onSearchBank = ({ search }) => {
+        filterBank(search)
+    }
 
     return (
-        <div>
+        <form onSubmit={handleSubmit(onSearchBank)} className={style.searchBank}>
             <InputSearch control={control} />
-            <Button label='Buscar' />
-        </div>
+            <Button label='Buscar' type='submit' />
+        </form>
     )
 }
-
-SearchBank.propTypes = {}
 
 export default SearchBank;

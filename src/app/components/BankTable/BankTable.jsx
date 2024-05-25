@@ -1,5 +1,4 @@
 "use client"
-import PropTypes from 'prop-types'
 import TBody from './TBody/TBody';
 import THeader from './THeader/THeader';
 import useBankStore from '@/store/useBankStore';
@@ -7,7 +6,7 @@ import useBankStore from '@/store/useBankStore';
 const BankTable = () => {
 
   const banks = useBankStore((state) => state.banks);
-  const removeBank = useBankStore((state) => state.removeBank)
+  const removeBank = useBankStore((state) => state.removeBank);
 
   return (
     <table>
@@ -21,9 +20,6 @@ const BankTable = () => {
       }
     </table>
   )
-}
-
-BankTable.propTypes = {
 }
 
 export default BankTable;
